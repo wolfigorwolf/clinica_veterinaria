@@ -3,7 +3,7 @@ Trabalho de clínica veterinária do Técnico em Informática, segundo semestre 
 
 
 
-#Diagrama UML(de classe de uso)
+#Diagrama de classe de uso
 
 ```mermaid
 flowchart TD
