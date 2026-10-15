@@ -3,69 +3,53 @@ Trabalho de clínica veterinária do Técnico em Informática, segundo semestre 
 
 ## Diagramas UML
 
-#Diagrama de classe de uso
+#Diagrama de caso de uso
 
 ```mermaid
 flowchart LR
-    Cliente([Cliente])
-    Vet([Veterinário])
+    Cliente["👦 Cliente"]
+    Veterinario["👨‍🦰 Veterinário"]
 
     subgraph Sistema["Sistema da Clínica Veterinária Vital"]
         direction TB
 
-        subgraph ClienteAT["Atendimento ao cliente"]
-            AT1([Cadastrar animal])
-            AT2([Agendar consulta])
-            AT3([Consultar agendamentos])
-            AT4([Consultar histórico do animal])
+        subgraph AtendimentoCliente["Atendimento ao cliente"]
+            AT1(["Cadastrar animal"])
+            AT2(["Agendar consulta"])
+            AT3(["Consultar agendamentos"])
+            AT4(["Consultar histórico do animal"])
         end
 
-        subgraph VetAT["Atendimento veterinário"]
-            AT5([Realizar consulta])
-            AT6([Registrar prescrição])
-            AT7([Registrar exames])
+        subgraph AtendimentoVet["Atendimento veterinário"]
+            AT5(["Realizar consulta"])
+            AT6(["Registrar prescrição"])
+            AT7(["Registrar exames"])
         end
     end
 
-    Cliente -- "Solicita Atendimento" --- AT1
-    Cliente -- "Solicita Atendimento" --- AT2
-    Cliente -- "Solicita Atendimento" --- AT3
-    Cliente -- "Solicita Atendimento" --- AT4
+    Cliente --- AT1
+    Cliente --- AT2
+    Cliente --- AT3
+    Cliente --- AT4
 
-    Vet -- "Realiza Atendimento" --- AT5
-    Vet -- "Realiza Atendimento" --- AT6
-    Vet -- "Realiza Atendimento" --- AT7
+    Veterinario --- AT5
+    Veterinario --- AT6
+    Veterinario --- AT7
 
-    Vet -- "Atende" --- Cliente
+    style Sistema fill:#fffde7,stroke:#9575cd,stroke-width:2px
+    style AtendimentoCliente fill:#fffde7,stroke:#9575cd
+    style AtendimentoVet fill:#fffde7,stroke:#9575cd
 
-    classDef cliente fill:#D6EAF8,stroke:#2874A6,color:#111
-    classDef vet fill:#D5F5E3,stroke:#239B56,color:#111
+    classDef cliente fill:#d6eaff,stroke:#3984c6,color:#111
+    classDef veterinario fill:#d5f5e3,stroke:#299764,color:#111
 
     class AT1,AT2,AT3,AT4 cliente
-    class AT5,AT6,AT7 vet
+    class AT5,AT6,AT7 veterinario
+
 
 ```
 
-```mermaid
-flowchart TD
-    cliente["👲Cliente"]
-    garçon["💂Garçon"]
 
-   
-%% ações
-subgraph sistema
-    comida["pedir comida"]
-    vinho["pedir vinho"]
-    end
-
-
-%%relacionamentos
-    cliente -- "faz pedido" --- comida
-    garçon -- "recebe pedido" --- comida
-
-    vinho -. "estende" .-> comida
-
-```
 
 ### Diagrama de classes
 
