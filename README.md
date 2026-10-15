@@ -71,41 +71,33 @@ subgraph sistema
 
 ```mermaid
 classDiagram
-    class Veterinário{
-        %% atributos: caracterisiticas que serão
-        %% armazenados no sistema
-        -cpf: string
-        %% métodos: ações que serão desempenhadas
-        %% por essa entidade no sistema
-        +darCPF() string
-        +atenderAnimal(animal: Animal) void
+    class Veterinario {
+        -String CPF
+        +darCPF() String
+        +atenderAnimal(Animal animal) void
     }
 
-    Veterinário -- Animal
-    Animal -- Cliente
-    
-    class Animal{
-        -dono:Cliente
-        -nome: string
-        -raça: string
-        -peso: float
-
-        +darNome() string
-        +darRaça() string
+    class Animal {
+        -Cliente dono
+        -String nome
+        -String raca
+        -float peso
+        +darNome() String
+        +darRaca() String
         +darPeso() float
-
     }
 
-    class Cliente{
-        -animais: Animal[]
-        -telefone: string
-        -Nome: string
-        -CPF: string
-
-        +darTelefone() string
-        +darNome() string
-        +darCPF()string
-
-
+    class Cliente {
+        -Animal[] animais
+        -String telefone
+        -String nome
+        -String CPF
+        +darTelefone() String
+        +darNome() String
+        +darCPF() String
     }
+
+    Cliente -->  Animal : possui
+    Veterinario -->  Animal : atende
+
 ```
